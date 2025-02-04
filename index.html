@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Girlfriend</title>
+    <style>
+        body {
+            background-color: #FFF5E1;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            position: relative;
+        }
+        .animated-teddy {
+            width: 500px;
+            height: 500px;
+            background: url(img.jpg) no-repeat center center/contain;
+            animation: bounce 2s infinite;
+            margin-bottom: 20px;
+            margin-left: 470px;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translate(-50%, 0);
+            }
+            50% {
+                transform: translate(-50%, -20px);
+            }
+        }
+        .portrait {
+            width: 150px;
+            height: 200px;
+            background: url('https://i.imgur.com/yourimage.jpg') no-repeat center center/cover;
+            margin: 20px 0;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        #yes, #no {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+        }
+        #no {
+            background-color: red;
+            color: white;
+        }
+        #no:hover {
+            transform: scale(0.8);
+        }
+        #message {
+            font-size: 30px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-teddy"></div>
+    <h1>Will you be my valentine?</h1>
+    <div class="portrait"></div>
+    <div class="buttons">
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+    <p id="message">🎉 Congratulations! 🎉</p>
+    
+    <script>
+        let yesButton = document.getElementById('yes');
+        let noButton = document.getElementById('no');
+        let message = document.getElementById('message');
+        let yesSize = 20;
+
+        noButton.addEventListener('click', function() {
+            yesSize += 10;
+            yesButton.style.fontSize = yesSize + 'px';
+            yesButton.style.padding = (yesSize / 2) + 'px';
+        });
+
+        yesButton.addEventListener('click', function() {
+            message.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
